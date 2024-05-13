@@ -18,11 +18,13 @@ Unit test will automatically run while building Docker at layer 10, if unit test
 
 ## Step-by-step API Usage
 
-- First, access the Login API to get Authorization Token [URL : {{base_url}}/sports-competition/v1/user/login]
+### First Step
+Firstly, access the Login API to get Authorization Token [URL : {{base_url}}/sports-competition/v1/user/login]
 
 API accepts username and password, if username is unique, the provided data will be considered as registered data to be registered, if username already exists, valid password must be given or else it will return invalid password.
 
-- Second, after you've received the access token you can start using the Begin Competition API [URL : {{base_url}}/sports-competition/v1/sport/begin-competition]
+### Second Step
+Secondly, after you've received the access token you can start using the Begin Competition API [URL : {{base_url}}/sports-competition/v1/sport/begin-competition]
 
 Must be remembered that you need to put the token to the Authorization header or else it'll return 401.
 
@@ -35,5 +37,16 @@ Example Data :
     "opponent_proficiencies" : [2,3,6,7,8],
 
     "opponent_exps" : [3,4,2,2,3]
-    
+
 }
+
+Validations ( if validity check is failed, process will abort ):
+* base_skill : index 0 : length of opponent_proficiencies and opponent_exps, index 1 : base proficiency value
+* opponent_proficiencies : list of opponent proficiencies ( note that the length must match the index 0 of base_skill )
+* opponent_exps : list of opponent gained proficiency points if defeated ( note that the length must match the index 0 of base_skill )
+
+
+### Third Step
+Thirdly, access the Get Identity API [URL : {{base_url}}/sports-competition/v1/user/identity/{{first_name}}]
+
+first_name servers as param that will be shown on response 
