@@ -1,0 +1,27 @@
+package helpers
+
+const (
+	REGEX_NUMBER                   string = "^[0-9]*$"
+	REGEX_FLOAT                    string = "^[0-9.,]*$"
+	REGEX_ALPHA                    string = "^[a-zA-Z ]*$"
+	REGEX_BASE64                   string = "^[a-zA-Z0-9+/=]*$"
+	REGEX_UUID                     string = "^[a-zA-Z0-9-]*$"
+	REGEX_UUID_COMMA               string = "^[a-zA-Z0-9-,]*$"
+	REGEX_ALPHA_COMMA              string = "^[a-zA-Z, ]*$"
+	REGEX_ALPHA_UNDER              string = "^[a-zA-Z_ ]*$"
+	REGEX_ALPHA_COMMA_UNDER        string = "^[a-zA-Z,_ ]*$"
+	REGEX_ALPHA_NUMBER             string = "^[a-zA-Z0-9 ]*$"
+	REGEX_SEARCH                   string = "^[a-zA-Z0-9-_ .,]*$"
+	REGEX_ALPHA_SLASH              string = "^[a-zA-Z/]*$"
+	REGEX_ALPHA_NUMBER_COMMA       string = "^[a-zA-Z0-9, ]*$"
+	REGEX_ALPHA_NUMBER_UNDER       string = "^[a-zA-Z0-9_ ]*$"
+	REGEX_ALPHA_NUMBER_COMMA_UNDER string = "^[a-zA-Z0-9,_ ]*$"
+	REGEX_GENERAL                  string = "^[a-zA-Z0-9- _,:./&=]*$"
+	REGEX_EMAIL                    string = "^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$"
+	REGEX_VALID_PASSWORD           string = "^[a-zA-Z0-9!@#$%^&*]*$"
+	REGEX_PASSWORD                 string = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*])$"
+	REGEX_URL                      string = "^[a-zA-Z0-9-_/&?:.]*$"
+	REGEX_DATE                     string = "^[0-9-]*$"
+	REGEX_TIME                     string = "^[0-9:]*$"
+	REGEX_DATETIME                 string = "^[0-9-:/ ]*$"
+)

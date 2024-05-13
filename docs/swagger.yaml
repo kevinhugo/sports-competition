@@ -1,0 +1,150 @@
+definitions:
+  helpers.Response:
+    properties:
+      data: {}
+      description:
+        type: string
+      message:
+        type: string
+      meta: {}
+      status:
+        type: integer
+    type: object
+  resources.SportBeginCompetition:
+    properties:
+      base_skill:
+        items:
+          type: integer
+        type: array
+      opponent_exps:
+        items:
+          type: integer
+        type: array
+      opponent_proficiencies:
+        items:
+          type: integer
+        type: array
+    type: object
+  resources.UserLogin:
+    properties:
+      password:
+        type: string
+      username:
+        type: string
+    type: object
+info:
+  contact: {}
+paths:
+  /sports-competition/v1/sport/begin-competition:
+    post:
+      consumes:
+      - application/json
+      description: Start the competititon
+      parameters:
+      - description: Bearer token
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      - description: Request Data
+        in: body
+        name: Data"
+        required: true
+        schema:
+          $ref: '#/definitions/resources.SportBeginCompetition'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/helpers.Response'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/helpers.Response'
+        "404":
+          description: 404 page not found
+          schema:
+            type: string
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/helpers.Response'
+      summary: Begin Competition
+      tags:
+      - sport
+  /sports-competition/v1/user/identity/{first_name}:
+    get:
+      consumes:
+      - application/json
+      description: Get Current User Identity and stats with firstname as param
+      parameters:
+      - description: Bearer token
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      - description: First Name
+        in: path
+        name: first_name
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/helpers.Response'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/helpers.Response'
+        "404":
+          description: 404 page not found
+          schema:
+            type: string
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/helpers.Response'
+      summary: Get user Identity
+      tags:
+      - user
+  /sports-competition/v1/user/login:
+    post:
+      consumes:
+      - application/json
+      description: Login User ( first login with unique username is considered as
+        register )
+      parameters:
+      - description: Request Data
+        in: body
+        name: Data"
+        required: true
+        schema:
+          $ref: '#/definitions/resources.UserLogin'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/helpers.Response'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/helpers.Response'
+        "404":
+          description: 404 page not found
+          schema:
+            type: string
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/helpers.Response'
+      summary: User Login
+      tags:
+      - user
+swagger: "2.0"
